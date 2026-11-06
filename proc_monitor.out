@@ -1,0 +1,5 @@
+ EUID  RUID     PID    PPID EUSER    RUSER    CMD
+    0  1000    1203    1197 root     oosebum+ fusermount3 -o rw,nosuid,nodev,fsname=portal,auto_unmount,subtype=portal -- /run/user/1000/doc
+    0  1000    1861    1778 root     oosebum+ su -
+    0  1000    1988    1965 root     oosebum+ su - user1
+    0  1234    2050    2000 root     user1    passwd

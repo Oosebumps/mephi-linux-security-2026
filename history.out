@@ -1,0 +1,32 @@
+    1  groupadd students
+    2  useradd -u 1234 -m -s /bin/bash -G students user1
+    3  passwd user1
+    4  chage -M 90 user1
+    5  id user1
+    6  chage -l user1
+    7  find / -type f -perm -4000 2>/dev/null > ~/suid_files.out
+    8  cat ~/suid_files.out
+    9  mkdir -p ~/mephi-linux-security-2026
+   10  cp ~/suid_files.out ~/mephi-linux-security-2026/
+   11  ps -eo euid,ruid,pid,ppid,euser,ruser,cmd | awk 'NR==1 || ($1==0 && $2>=1000)' > ~/proc_monitor.out
+   12  cat ~/proc_monitor.out
+   13  cp /usr/bin/cat /home/user1/mycat
+   14  chown root:root /home/user1/mycat
+   15  chmod u+s /home/user1/mycat
+   16  ls -l /home/user1/mycat
+   17  dnf install -y libcap
+   18  cp /usr/bin/chown /home/user1/mychown
+   19  setcap cap_chown+ep /home/user1/mychown
+   20  getcap /home/user1/mychown
+   21  which date timedatectl
+   22  visudo
+   23  which date timedatectl
+   24  visudo
+   25  which date timedatectl
+   26  visudo
+   27  jobs
+   28  ps aux | grep [v]isudo
+   29  fg
+   30  echo M265231
+   31  history -a
+   32  history > ~/history.out
